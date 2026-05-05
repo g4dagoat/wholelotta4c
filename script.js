@@ -1,8 +1,8 @@
 const usersUrl =
-  "https://raw.githubusercontent.com/g4dagoat/wholelotta4l/main/users.txt";
+  "https://github.com/g4dagoat/wholelotta4c/blob/main/users.txt"
 
 function createUserBox(user, index) {
-  const div = document.createElement("div");
+  const div = document.createElement("div")
   div.className = "user-box";
 
   div.innerHTML = `
@@ -13,27 +13,27 @@ function createUserBox(user, index) {
           </div>
 
           <div class="user-name">${user}</div>
-        `;
+        `
 
-  return div;
+  return div
 }
 
 function setupCopy() {
   document.querySelectorAll(".copy-icon").forEach((icon) => {
     icon.addEventListener("click", () => {
-      const text = icon.getAttribute("data-name");
-      const id = icon.getAttribute("data-id");
+      const text = icon.getAttribute("data-name")
+      const id = icon.getAttribute("data-id")
 
-      navigator.clipboard.writeText(text);
+      navigator.clipboard.writeText(text)
 
-      const el = document.getElementById("copied-" + id);
+      const el = document.getElementById("copied-" + id)
       el.classList.add("show");
 
       setTimeout(() => {
-        el.classList.remove("show");
+        el.classList.remove("show")
       }, 1000);
-    });
-  });
+    })
+  })
 }
 
 fetch(usersUrl)
@@ -42,13 +42,13 @@ fetch(usersUrl)
     const users = text
       .split("\n")
       .map((u) => u.trim())
-      .filter(Boolean);
+      .filter(Boolean)
 
-    const container = document.querySelector(".container");
+    const container = document.querySelector(".container")
 
     users.forEach((user, i) => {
-      const div = document.createElement("div");
-      div.className = "user-box";
+      const div = document.createElement("div")
+      div.className = "user-box"
 
       div.innerHTML = `
         <div class="copied" id="copied-${i}">copied user</div>
@@ -60,28 +60,28 @@ fetch(usersUrl)
         <div class="user-name">${user}</div>
       `;
 
-      container.appendChild(div);
-    });
+      container.appendChild(div)
+    })
 
     document.querySelectorAll(".copy-icon").forEach((icon) => {
       icon.addEventListener("click", () => {
-        const text = icon.getAttribute("data-name");
-        const id = icon.getAttribute("data-id");
+        const text = icon.getAttribute("data-name")
+        const id = icon.getAttribute("data-id")
 
-        navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(text)
 
-        const el = document.getElementById("copied-" + id);
-        el.classList.add("show");
+        const el = document.getElementById("copied-" + id)
+        el.classList.add("show")
 
-        setTimeout(() => el.classList.remove("show"), 1000);
+        setTimeout(() => el.classList.remove("show"), 1000)
       });
     });
   })
   .catch((err) => {
-    console.error("Failed to load users:", err);
-  });
+    console.error("Failed to load users:", err)
+  })
 
-const isMobile = window.innerWidth < 600;
+const isMobile = window.innerWidth < 600
 
 particlesJS("particles-js", {
   particles: {
@@ -107,4 +107,4 @@ particlesJS("particles-js", {
       onhover: { enable: !isMobile, mode: "repulse" },
     },
   },
-});
+})
